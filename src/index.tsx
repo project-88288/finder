@@ -3,7 +3,7 @@ import "core-js";
 import React from "react";
 import ReactDOM from "react-dom";
 import { RecoilRoot } from "recoil";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./index.scss";
 import App from "./layouts/App";
@@ -18,7 +18,7 @@ const queryClient = new QueryClient({
 
 getChains().then(chains => {
   ReactDOM.render(
-    <BrowserRouter>
+    <HashRouter>
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
           <ChainsProvider value={chains}>
@@ -29,7 +29,7 @@ getChains().then(chains => {
           </ChainsProvider>
         </QueryClientProvider>
       </RecoilRoot>
-    </BrowserRouter>,
+    </HashRouter>,
     document.getElementById("root")
   );
 });
